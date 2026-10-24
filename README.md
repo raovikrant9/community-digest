@@ -2,6 +2,8 @@
 
 Wake up every morning with 500+ notifications across multiple groups? And have trouble picking nuggets of information from there? This repo helps collate information from whatsapp and slack groups into a digest to make content more consumable.
 
+Each day it gives you:
+
 1. **Experiments & results**: what people actually tried, and the numbers they saw
 2. **Questions people are asking**: grouped by theme, with the best answer given (or "unanswered")
 3. **Tools mentioned**: what's new, what it's for, who recommended or warned against it
