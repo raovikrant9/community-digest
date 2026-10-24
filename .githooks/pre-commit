@@ -1,0 +1,15 @@
+#!/bin/sh
+# Blocks commits that look like they contain a filled-in personal config.
+# Enable once with:  git config core.hooksPath .githooks
+staged=$(git diff --cached --name-only --diff-filter=ACM)
+[ -z "$staged" ] && exit 0
+bad=0
+for f in $staged; do
+  [ -f "$f" ] || continue
+  # Real Slack team/channel IDs (placeholders are all zeros), Chrome device UUIDs, phone numbers
+  if grep -nE "team_id: \"T[0-9A-Z]{8,}\"|channels: \[\"C[0-9A-Z]{8,}\"|chrome_device_id: \"[0-9a-f]{8}-" "$f" | grep -vE "T0000000000|C0000000000" >/dev/null; then
+    echo "pre-commit: $f looks like it contains a personal config (real Slack or Chrome IDs)."; bad=1
+  fi
+done
+[ $bad -eq 1 ] && echo "Keep personal copies as *.local.md (ignored). Commit blocked." && exit 1
+exit 0

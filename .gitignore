@@ -1,0 +1,29 @@
+# ---- Personal data: never commit ----
+# Your filled-in skill (has your group names, Slack IDs, Chrome profile ID, projects).
+# Keep personal copies under any of these names/folders.
+*.local.md
+*.personal.md
+SKILL.local.md
+personal/
+private/
+config.local.*
+config.json
+config.yaml
+.env
+.env.*
+
+# Raw chat exports, digests and WhatsApp database copies
+output/
+digests/
+exports/
+*.sqlite
+*.sqlite-*
+*.db
+*.txt
+*.log
+
+# OS / tooling
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/
